@@ -1,0 +1,231 @@
+/* #cv-form{
+    display: none;
+}
+
+#cv-template{
+    display: none;
+}
+.myimg{
+    width: 200px;
+    border-radius: 50%;
+}
+.background{
+    background-color: rgb(175, 125, 125);
+} */
+
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+/* CV Form Section */
+#cv-form {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    max-width: 900px;
+}
+
+#cv-form h1 {
+    color: #5a5a5a;
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+#cv-form label {
+    font-weight: bold;
+    color: #555;
+}
+
+#cv-form .form-control {
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+#cv-form .btn {
+    background-color: #6c757d;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+#cv-form .btn:hover {
+    background-color: #495057;
+}
+
+#cv-form .container {
+    margin-top: 20px;
+}
+
+/* General Styling for the CV Template */
+#cv-template {
+    /* max-width: 1000px;
+    margin: 30px auto; */
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    background-color: #f7f9fc; /* Light background for overall template */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+display: none;
+}
+
+/* Left Section Styling */
+#cv-template .col-md-4 {
+    background-color: #8e5a4d; /* Deep blue background */
+    color: white; /* White text for contrast */
+    padding: 20px;
+    border-radius: 10px 0 0 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+/* Profile Image Styling */
+#cv-template .col-md-4 img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 4px solid #ffffff;
+    margin-bottom: 20px;
+}
+
+/* Personal Information */
+#cv-template .col-md-4 p {
+    margin: 8px 0;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+#cv-template .col-md-4 a {
+    color: #d1e3ff; /* Slightly lighter blue for links */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+#cv-template .col-md-4 a:hover {
+    text-decoration: underline;
+}
+
+/* Divider Line */
+#cv-template .col-md-4 hr {
+    width: 100%;
+    height: 1px;
+    background-color: white;
+    border: none;
+    margin: 20px 0;
+}
+
+/* Right Section Styling */
+#cv-template .col-md-8 {
+    background-color: #ffffff; /* White background for readability */
+    color: #333;
+    padding: 20px;
+    border-radius: 0 10px 10px 0;
+    box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Section Headers */
+#cv-template .card-header {
+    background-color: #8e5a4d;
+    color: white;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+#cv-template .card {
+    margin-bottom: 20px;
+    border: none;
+}
+
+#cv-template .card-body ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+/* Name Header in Right Section */
+#cv-template h1#nameT2 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #4e73df;
+    margin-bottom: 20px;
+    text-align: center;
+}
+button.background {
+    background-color: #4c4c4d; /* Matching with the CV template's color */
+    color: white; /* White text for contrast */
+    border: none;
+    padding: 12px 25px; /* Padding for a better button size */
+    font-size: 1.1rem; /* Slightly larger text for emphasis */
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease; /* Smooth transition for hover effect */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+/* Print Resume Button Hover Effect */
+button.background:hover {
+    background-color: #355e9f; /* Darker blue for hover effect */
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.15); /* Increased shadow on hover */
+    transform: translateY(-2px); /* Lift effect on hover */
+}
+
+/* Print Resume Button Focus (when clicked) */
+button.background:focus {
+    outline: none; /* Removes the default focus outline */
+    box-shadow: 0px 0px 5px 2px rgba(72, 133, 255, 0.6); /* Blue glow on focus */
+}
+
+/* Print Resume Button Disabled State */
+button.background:disabled {
+    background-color: #d1d1d1; /* Gray color for disabled state */
+    cursor: not-allowed; /* Not-allowed cursor */
+    box-shadow: none; /* No shadow for disabled state */
+}
+/* Responsive Design */
+@media (max-width: 768px) {
+    #cv-form h1{
+        font-size: 35px;
+    }
+    
+    #cv-template {
+        padding: 10px;
+    }
+
+    #cv-template .row {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    #cv-template .col-md-4 {
+        border-radius: 10px;
+        padding: 15px;
+    }
+
+    #cv-template .col-md-8 {
+        border-radius: 10px;
+        padding: 15px;
+    }
+
+    #cv-template h1#nameT2 {
+        font-size: 1.8rem;
+    }
+
+    #cv-template .col-md-4 img {
+        width: 90px;
+        height: 90px;
+    }
+}
