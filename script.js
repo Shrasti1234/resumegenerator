@@ -40,15 +40,15 @@ function validateRequiredFields() {
     let isValid = true;
     let errorMessage = "Please fill out the following required fields:\n";
 
-    requiredFields.forEach((item) => {
-        if (item.field.value.trim() === "") {
-            isValid = false;
-            errorMessage += `- ${item.name}\n`;
-            item.field.style.border = "2px solid red"; // Highlight empty fields
-        } else {
-            item.field.style.border = ""; // Reset border if filled
-        }
-    });
+    // requiredFields.forEach((item) => {
+    //     if (item.field.value.trim() === "") {
+    //         isValid = false;
+    //         errorMessage += `- ${item.name}\n`;
+    //         item.field.style.border = "2px solid red"; // Highlight empty fields
+    //     } else {
+    //         item.field.style.border = ""; // Reset border if filled
+    //     }
+    // });
 
     if (!isValid) {
         alert(errorMessage);
@@ -309,12 +309,12 @@ console.log(file);
 
 let reader = new FileReader();
 
-reader.readAsDataURL(file);
+//reader.readAsDataURL(file);
 console.log(reader.result);
 //set the image to template
 reader.onloadend=function(){
     document.getElementById('imgT').src=reader.result;
-}
+ }
 document.getElementById("cv-form").style.display='none';
 document.getElementById("cv-template").style.display='block';
 //------------------------
