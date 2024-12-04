@@ -1,338 +1,248 @@
+/* #cv-form{
+    display: none;
+}
 
-function validateTimeDuration(duration) {
-    // Regular expression to validate YYYY-MM - YYYY-MM format
-    const durationRegex = /^\d{4}-(0[1-9]|1[0-2])\s*-\s*\d{4}-(0[1-9]|1[0-2])$/;
+#cv-template{
+    display: none;
+}
+.myimg{
+    width: 200px;
+    border-radius: 50%;
+}
+.background{
+    background-color: rgb(175, 125, 125);
+} */
 
-    // Check if the duration matches the format
-    if (!durationRegex.test(duration)) {
-        return false;
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+/* CV Form Section */
+.required-asterisk {
+    color: red;
+    font-weight: bold;
+    margin-left: 2px;
+}
+
+.form-control {
+    border: 1px solid #ccc;
+    padding: 8px;
+    margin-bottom: 10px;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+#cv-form {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    max-width: 900px;
+}
+
+#cv-form h1 {
+    color: #5a5a5a;
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+#cv-form label {
+    font-weight: bold;
+    color: #555;
+}
+
+#cv-form .form-control {
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+#cv-form .btn {
+    background-color: #6c757d;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+#cv-form .btn:hover {
+    background-color: #495057;
+}
+
+#cv-form .container {
+    margin-top: 20px;
+}
+
+/* General Styling for the CV Template */
+#cv-template {
+    /* max-width: 1000px;
+    margin: 30px auto; */
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    background-color: #f7f9fc; /* Light background for overall template */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+display: none;
+}
+
+/* Left Section Styling */
+#cv-template .col-md-4 {
+    background-color: #8e5a4d; /* Deep blue background */
+    color: white; /* White text for contrast */
+    padding: 20px;
+    border-radius: 10px 0 0 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+/* Profile Image Styling */
+#cv-template .col-md-4 img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 4px solid #ffffff;
+    margin-bottom: 20px;
+}
+
+/* Personal Information */
+#cv-template .col-md-4 p {
+    margin: 8px 0;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+#cv-template .col-md-4 a {
+    color: #d1e3ff; /* Slightly lighter blue for links */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+#cv-template .col-md-4 a:hover {
+    text-decoration: underline;
+}
+
+/* Divider Line */
+#cv-template .col-md-4 hr {
+    width: 100%;
+    height: 1px;
+    background-color: white;
+    border: none;
+    margin: 20px 0;
+}
+
+/* Right Section Styling */
+#cv-template .col-md-8 {
+    background-color: #ffffff; /* White background for readability */
+    color: #333;
+    padding: 20px;
+    border-radius: 0 10px 10px 0;
+    box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Section Headers */
+#cv-template .card-header {
+    background-color: #8e5a4d;
+    color: white;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+#cv-template .card {
+    margin-bottom: 20px;
+    border: none;
+}
+
+#cv-template .card-body ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+/* Name Header in Right Section */
+#cv-template h1#nameT2 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #4e73df;
+    margin-bottom: 20px;
+    text-align: center;
+}
+button.background {
+    background-color: #4c4c4d; /* Matching with the CV template's color */
+    color: white; /* White text for contrast */
+    border: none;
+    padding: 12px 25px; /* Padding for a better button size */
+    font-size: 1.1rem; /* Slightly larger text for emphasis */
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease; /* Smooth transition for hover effect */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+/* Print Resume Button Hover Effect */
+button.background:hover {
+    background-color: #355e9f; /* Darker blue for hover effect */
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.15); /* Increased shadow on hover */
+    transform: translateY(-2px); /* Lift effect on hover */
+}
+
+/* Print Resume Button Focus (when clicked) */
+button.background:focus {
+    outline: none; /* Removes the default focus outline */
+    box-shadow: 0px 0px 5px 2px rgba(72, 133, 255, 0.6); /* Blue glow on focus */
+}
+
+/* Print Resume Button Disabled State */
+button.background:disabled {
+    background-color: #d1d1d1; /* Gray color for disabled state */
+    cursor: not-allowed; /* Not-allowed cursor */
+    box-shadow: none; /* No shadow for disabled state */
+}
+/* Responsive Design */
+@media (max-width: 768px) {
+    #cv-form h1{
+        font-size: 35px;
+    }
+    
+    #cv-template {
+        padding: 10px;
     }
 
-    // Extract start and end dates
-    const [start, end] = duration.split('-').map((d) => d.trim());
-    const startYearMonth = start.split('-').map(Number);
-    const endYearMonth = end.split('-').map(Number);
-
-    // Validate logical correctness (start date must be earlier than end date)
-    if (
-        startYearMonth[0] > endYearMonth[0] || // Start year > End year
-        (startYearMonth[0] === endYearMonth[0] && startYearMonth[1] > endYearMonth[1]) // Same year, but start month > end month
-    ) {
-        return false;
+    #cv-template .row {
+        flex-direction: column;
+        gap: 20px;
     }
 
-    return true;
-}
-function validateRequiredFields() {
-    const requiredFields = [
-        { field: document.getElementById('nameField'), name: "Name" },
-        { field: document.getElementById('contactField'), name: "Contact" },
-        { field: document.getElementById('emailField'), name: "Email ID" },
-        { field: document.getElementById('addressField'), name: "Address"},
-        { field: document.getElementById('prfield'), name: "pr" },
-        { field: document.getElementById('githubField'), name: "git" },
-        { field: document.getElementById('imgfield'), name: "Image" },
-        { field: document.getElementById('siField'), name: "Skills" },
-        { field: document.getElementById('aqField'), name: "Academic Qualifications" },
-
-
-    ];
-
-    let isValid = true;
-    let errorMessage = "Please fill out the following required fields:\n";
-
-    // requiredFields.forEach((item) => {
-    //     if (item.field.value.trim() === "") {
-    //         isValid = false;
-    //         errorMessage += `- ${item.name}\n`;
-    //         item.field.style.border = "2px solid red"; // Highlight empty fields
-    //     } else {
-    //         item.field.style.border = ""; // Reset border if filled
-    //     }
-    // });
-
-    if (!isValid) {
-        alert(errorMessage);
+    #cv-template .col-md-4 {
+        border-radius: 10px;
+        padding: 15px;
     }
 
-    return isValid;
-}
-
-//---------Skills----------------
-function addNewSIField(){
-    let newNode=document.createElement("textarea");
-newNode.classList.add("form-control");
-newNode.classList.add("siField");
-newNode.classList.add("mt-2");
-newNode.setAttribute("rows",3);
-newNode.setAttribute("placeholder","Enter here");
-
-let siOb = document.getElementById("si");
-let siAddbuttonOb = document.getElementById("siAddbutton");
-
-siOb.insertBefore(newNode, siAddbuttonOb);
-}
-//-----------------Projects---------------------
-function validateAllDurations1() {
-    const durationFields1 = document.getElementsByClassName("prDurationField");
-    for (let field of durationFields1) {
-        if (!validateTimeDuration(field.value)) {
-            alert("Invalid duration format in one or more fields! Please use YYYY-MM - YYYY-MM and ensure the start date is earlier than the end date.");
-            field.focus();
-            return false;
-        }
+    #cv-template .col-md-8 {
+        border-radius: 10px;
+        padding: 15px;
     }
-    return true;
-}
 
-function addNewPRField(){
-//console.log("Adding new field");
-
-let newNode=document.createElement("textarea");
-newNode.classList.add("form-control");
-newNode.classList.add("prfield");
-newNode.classList.add("mt-2");
-newNode.setAttribute("rows",3);
-newNode.setAttribute("placeholder","Enter here");
-
-let newDurationNode = document.createElement("input");
-newDurationNode.classList.add("form-control", "prDurationField", "mt-2");
-newDurationNode.setAttribute("type", "text");
-newDurationNode.setAttribute("placeholder", "YYYY-MM - YYYY-MM");
-
-let newLinkNode = document.createElement("input");
-newLinkNode.classList.add("form-control", "prLinkField", "mt-2");
-newLinkNode.setAttribute("type", "text");
-newLinkNode.setAttribute("placeholder", "Enter project link");
-
-let prOb = document.getElementById("pr");
-let prAddbuttonOb = document.getElementById("prAddbutton");
-
-prOb.insertBefore(newNode, prAddbuttonOb);
-prOb.insertBefore(newDurationNode, prAddbuttonOb);
-    prOb.insertBefore(newLinkNode, prAddbuttonOb)
-}
-//-----------------Work Experience---------------------
-function validateAllDurations2() {
-    const durationFields2 = document.getElementsByClassName("weDurationField");
-    for (let field of durationFields2) {
-        if (!validateTimeDuration(field.value)) {
-            alert("Invalid duration format in one or more fields! Please use YYYY-MM - YYYY-MM and ensure the start date is earlier than the end date.");
-            field.focus();
-            return false;
-        }
+    #cv-template h1#nameT2 {
+        font-size: 1.8rem;
     }
-    return true;
-}
 
-function addNewWEField(){
-    let newNode=document.createElement("textarea");
-newNode.classList.add("form-control");
-newNode.classList.add("weField");
-newNode.classList.add("mt-2");
-newNode.setAttribute("rows",3);
-newNode.setAttribute("placeholder","Enter here");
-
-let newDurationNode = document.createElement("input");
-newDurationNode.classList.add("form-control", "weDurationField", "mt-2");
-newDurationNode.setAttribute("type", "text");
-newDurationNode.setAttribute("placeholder", "YYYY-MM - YYYY-MM");
-
-let weOb = document.getElementById("we");
-let weAddbuttonOb = document.getElementById("weAddbutton");
-
-weOb.insertBefore(newNode, weAddbuttonOb);
-weOb.insertBefore(newDurationNode, weAddbuttonOb);
-}
-//-----------------Academic Qualifications---------------------
-function validateAllDurations3() {
-    const durationFields3 = document.getElementsByClassName("aqDurationField");
-    for (let field of durationFields3) {
-        if (!validateTimeDuration(field.value)) {
-            alert("Invalid duration format in one or more fields! Please use YYYY-MM - YYYY-MM and ensure the start date is earlier than the end date.");
-            field.focus();
-            return false;
-        }
+    #cv-template .col-md-4 img {
+        width: 90px;
+        height: 90px;
     }
-    return true;
 }
-
-function addNewAQField(){
-    let newNode=document.createElement("textarea");
-newNode.classList.add("form-control");
-newNode.classList.add("aqField");
-newNode.classList.add("mt-2");
-newNode.setAttribute("rows",3);
-newNode.setAttribute("placeholder","Enter here");
-let newDurationNode = document.createElement("input");
-newDurationNode.classList.add("form-control", "aqDurationField", "mt-2");
-newDurationNode.setAttribute("type", "text");
-newDurationNode.setAttribute("placeholder", "YYYY-MM - YYYY-MM");
-
-let aqOb = document.getElementById("aq");
-let aqAddbuttonOb = document.getElementById("aqAddbutton");
-
-aqOb.insertBefore(newNode, aqAddbuttonOb);
-aqOb.insertBefore(newDurationNode, aqAddbuttonOb);
-}
-//-----------------Certifications---------------------
-function addNewCEField(){
-    let newNode=document.createElement("textarea");
-newNode.classList.add("form-control");
-newNode.classList.add("ceField");
-newNode.classList.add("mt-2");
-newNode.setAttribute("rows",3);
-newNode.setAttribute("placeholder","Enter here");
-let newLinkNode = document.createElement("input");
-newLinkNode.classList.add("form-control", "ceLinkField", "mt-2");
-newLinkNode.setAttribute("type", "text");
-newLinkNode.setAttribute("placeholder", "Enter certification link");
-
-
-let ceOb = document.getElementById("ce");
-let ceAddbuttonOb = document.getElementById("ceAddbutton");
-
-ceOb.insertBefore(newNode, ceAddbuttonOb);
-ceOb.insertBefore(newLinkNode, ceAddbuttonOb)
-}
-
-// generatingCV
-
-function generateResume(){
-
-    if (!validateRequiredFields()) {
-        return; // Stop if validation fails
-    }
-    // console.log("generating Resume");
-    document.getElementById('cv-template').style.display = "block";
-    let nameField=document.getElementById("nameField").value;//name
-    let nameT=document.getElementById("nameT");
-    nameT.innerHTML=nameField;
-    // document.getElementById("nameT2").innerHTML=nameField;
-
-    let contactField=document.getElementById("contactField").value;//contact
-    let contactT=document.getElementById("contactT");
-    contactT.innerHTML=contactField;
-    document.getElementById("mailT").innerHTML = document.getElementById("emailField").value;
-    document.getElementById("addressT").innerHTML = document.getElementById("addressField").value;
-
-    document.getElementById("gitT").innerHTML = document.getElementById("githubField").value; 
-    document.getElementById("linkedT").innerHTML = document.getElementById("linkedinField").value;
-//   Skills  
-let sis=document.getElementsByClassName("siField");
-let str="";
-
-for(let e of sis){
-    str = str + `<li> ${e.value}</li>`;
-}
-document.getElementById("siT").innerHTML = str;
-
-// Projects
-
-let prs = document.getElementsByClassName("prfield");
-let durations = document.getElementsByClassName("prDurationField");
-    let links = document.getElementsByClassName("prLinkField");
-
-let str1 = "";
-// for(let e of prs){
-//     str1+= `<li> ${e.value} </li>`;
-// }
-for (let i = 0; i < prs.length; i++) {
-    let description = prs[i].value;
-    let duration = durations[i].value;
-    let link = links[i].value;
-
-    str1+= `
-    <li style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
-        <div>
-            <p><strong>${description}</strong></p>
-            <p><a href="${link}" target="_blank">${link}</a></p>
-        </div>
-        <p class="text-secondary">${duration}</p>
-    </li>`;
-}
-
-document.getElementById("prT").innerHTML = str1;
-
-// we
-let wes = document.getElementsByClassName("weField");
-let durations2 = document.getElementsByClassName("weDurationField");
-let str2 = "";
-for (let i = 0; i < wes.length; i++) {
-    let description = wes[i].value;
-    let duration2 = durations2[i].value;
-    str2+= `
-    <li style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
-        <div>
-            <p><strong>${description}</strong></p>
-        </div>
-        <p class="text-secondary">${duration2}</p>
-    </li>`;
-}
-document.getElementById("weT").innerHTML = str2;
-// aq
-let aqs = document.getElementsByClassName("aqField");
-let durations3 = document.getElementsByClassName("aqDurationField");
-let str3 = "";
-for (let i = 0; i < aqs.length; i++) {
-    let description = aqs[i].value;
-    let duration3 = durations3[i].value;
-    str3+= `
-    <li style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
-        <div>
-            <p><strong>${description}</strong></p>
-        </div>
-        <p class="text-secondary">${duration3}</p>
-    </li>`;
-}
-document.getElementById("aqT").innerHTML = str3;
-// ce
-let ces = document.getElementsByClassName("ceField");
-let links4 = document.getElementsByClassName("ceLinkField");
-let str4 = "";
-for (let i = 0; i < ces.length; i++) {
-    let description = ces[i].value;
-    let link4 = links4[i].value;
-
-    str4+= `
-    <li style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
-        <div>
-            <p><strong>${description}</strong></p>
-            <p><a href="${link4}" target="_blank">${link4}</a></p>
-        </div>
-    </li>`;
-}
-document.getElementById("ceT").innerHTML = str4;
-
-//code for setting image
-let file=document.getElementById('imgfield').files[0];
-console.log(file);
-
-let reader = new FileReader();
-
-//reader.readAsDataURL(file);
-console.log(reader.result);
-//set the image to template
-reader.onloadend=function(){
-    document.getElementById('imgT').src=reader.result;
- }
-document.getElementById("cv-form").style.display='none';
-document.getElementById("cv-template").style.display='block';
-//------------------------
-if (!validateAllDurations1()) {
-    return; // Abort resume generation if validation fails
-}
-if (!validateAllDurations2()) {
-    return; // Abort resume generation if validation fails
-}
-if (!validateAllDurations3()) {
-    return; // Abort resume generation if validation fails
-}
-
-}
-//print cv
-function printResume(){
-    window.print();
-}
-
-
