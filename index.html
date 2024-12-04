@@ -22,7 +22,7 @@
 <!-- <h3>Personal Information</h3> -->
 <div 
      class="form-group">
-    <label for="nameField">Your Name</label>
+    <label for="nameField">Your Name <span class="required-asterisk">*</span> </label>
     <input type="text"
     id="nameField"
     placeholder="Enter here" 
@@ -31,7 +31,7 @@
 
 <div 
     class="form-group mt-3">
-    <label for="contactField">Your Contact</label>
+    <label for="contactField">Your Contact <span class="required-asterisk">*</span></label>
     <input type="text"
     id="contactField"
     placeholder="+910123456789" 
@@ -39,7 +39,7 @@
 </div>
 <div 
     class="form-group mt-3">
-    <label for="emailField">Your Email ID</label>
+    <label for="emailField">Your Email ID <span class="required-asterisk">*</span></label>
     <input type="text"
     id="emailField"
     placeholder="contact@gmail.com" 
@@ -48,7 +48,7 @@
 
 <div 
     class="form-group mt-3">
-    <label for="addressField">Your Address</label>
+    <label for="addressField">Your Address <span class="required-asterisk">*</span></label>
     <textarea
     id="addressField"
     placeholder="Enter here" 
@@ -56,25 +56,17 @@
     rows="3"
     ></textarea>
 </div>
-<!-- <div 
-    class="form-group mt-3">
-    <label for="skillField">Your Skills</label>
-    <textarea
-    id="skillField"
-    placeholder="Enter here" 
-    class="form-control"
-    rows="3"
-    ></textarea>
-</div> -->
+
 <p class="text-secondary my-4"> Important Links</p>
 <div 
     class="form-group mt-3">
-    <label for="githubField">Github link</label>
+    <label for="githubField">Github link <span class="required-asterisk">*</span></label>
     <input type="text"
     id="githubField"
     placeholder="Enter here" 
     class="form-control"/>
 </div>
+
 <div 
     class="form-group mt-4">
     <label for="linkedinField">LinkedIn URL</label>
@@ -85,17 +77,17 @@
 </div>
 
 <div class="form-group mt-3">
-    <label for=""> Select your photo</label>
+    <label for=""> Select your photo <span class="required-asterisk">*</span></label>
         <input id="imgfield" type="file" class="form-control"/>
     </div>
 
             </div>
             <div class="col-md-6"> <!---second col-->
-               <!-- <h3> Projects</h3> -->
-
+               
+<!--------------------- Skills--------------- -->
 <div 
     class="form-group mt-2" id="si">
-    <label for="">Skills</label>
+    <label for="">Skills <span class="required-asterisk">*</span></label>
     <textarea
     placeholder="Enter here" 
     class="form-control siField"
@@ -107,20 +99,22 @@
         <button onclick="addNewSIField()" class="btn btn-primary btn-sm">ADD</button>
     </div>
 </div>
-
+<!-- -------------------Projects------------------- -->
 <div 
     class="form-group mt-2" id="pr">
-    <label for="">Projects</label>
+    <label for="">Projects <span class="required-asterisk">*</span></label>
     <textarea
     placeholder="Enter here" 
     class="form-control prfield"
     rows="3"
     ></textarea>
+    <input type="text" placeholder="YYYY-MM - YYYY-MM" class="form-control prDurationField mt-2" />
+    <input type="text" placeholder="Enter project link" class="form-control prLinkField mt-2" />
     <div class="container text-center mt-3" id= "prAddbutton" >
         <button onclick="addNewPRField()" class="btn btn-primary btn-sm">ADD</button>
     </div>
 </div>
-
+<!-- -------------------Work Experience------------------- -->
 <div 
     class="form-group mt-2" id="we">
     <label for="">Work Exprience</label>
@@ -129,26 +123,26 @@
     class="form-control weField"
     rows="3"
     ></textarea>
-
+    <input type="text" placeholder="YYYY-MM - YYYY-MM" class="form-control weDurationField mt-2" />
     <div class="container text-center mt-3 " id= "weAddbutton">
         <button onclick="addNewWEField()" class="btn btn-primary btn-sm">ADD</button>
     </div>
 </div>
-
+<!-- -------------------Academic Qualifications------------------- -->
 <div 
     class="form-group mt-2" id="aq">
-    <label for="">Academic Qualifications</label>
+    <label for="">Academic Qualifications <span class="required-asterisk">*</span></label>
     <textarea
     placeholder="Enter here" 
     class="form-control aqField"
     rows="3"
     ></textarea>
-
+    <input type="text" placeholder="YYYY-MM - YYYY-MM" class="form-control aqDurationField mt-2" />
     <div class="container text-center mt-3" id= "aqAddbutton">
         <button onclick="addNewAQField()" class="btn btn-primary btn-sm">ADD</button>
     </div>
 </div>
-
+<!-- -------------------Certifications------------------- -->
 <div 
     class="form-group mt-2" id="ce">
     <label for="">Certifications</label>
@@ -157,7 +151,7 @@
     class="form-control ceField"
     rows="3"
     ></textarea>
-
+    <input type="text" placeholder="Enter certification link" class="form-control ceLinkField mt-2" />
     <div class="container text-center mt-3 " id= "ceAddbutton">
         <button onclick="addNewCEField()" class="btn btn-primary btn-sm">ADD</button>
     </div>
@@ -209,7 +203,7 @@ id="imgT"/>
     </div>
     <div class="card-body">
        
-        <ul id="prT">
+        <ul id="prT" style="list-style: none; padding-left: 0;">
             <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corrupti harum possimus eligendi dignissimos perferendis nihil. Fugiat sit temporibus corporis fuga?</li>
             <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corrupti harum possimus eligendi dignissimos perferendis nihil. Fugiat sit temporibus corporis fuga?</li>
         </ul>
@@ -225,7 +219,7 @@ id="imgT"/>
     </div>
     <div class="card-body">
        
-        <ul id="weT">
+        <ul id="weT" style="list-style: none; padding-left: 0;">
             <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corrupti harum possimus eligendi dignissimos perferendis nihil. Fugiat sit temporibus corporis fuga?</li>
             <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corrupti harum possimus eligendi dignissimos perferendis nihil. Fugiat sit temporibus corporis fuga?</li>
         </ul>
@@ -240,7 +234,7 @@ id="imgT"/>
     </div>
     <div class="card-body">
        
-        <ul id="aqT">
+        <ul id="aqT" style="list-style: none; padding-left: 0;">
             <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corrupti harum possimus eligendi dignissimos perferendis nihil. Fugiat sit temporibus corporis fuga?</li>
             <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corrupti harum possimus eligendi dignissimos perferendis nihil. Fugiat sit temporibus corporis fuga?</li>
         </ul>
@@ -254,7 +248,7 @@ id="imgT"/>
     </div>
     <div class="card-body">
        
-        <ul id="ceT">
+        <ul id="ceT" style="list-style: none; padding-left: 0;">
             <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corrupti harum possimus eligendi dignissimos perferendis nihil. Fugiat sit temporibus corporis fuga?</li>
 
             <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corrupti harum possimus eligendi dignissimos perferendis nihil. Fugiat sit temporibus corporis fuga?</li>
