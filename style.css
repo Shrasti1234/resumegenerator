@@ -23,6 +23,23 @@ body {
 }
 
 /* CV Form Section */
+.required-asterisk {
+    color: red;
+    font-weight: bold;
+    margin-left: 2px;
+}
+
+.form-control {
+    border: 1px solid #ccc;
+    padding: 8px;
+    margin-bottom: 10px;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
 #cv-form {
     background-color: #fff;
     padding: 30px;
